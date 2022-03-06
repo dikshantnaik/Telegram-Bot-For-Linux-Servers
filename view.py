@@ -28,3 +28,8 @@ def PlayMusic(playWhat):
     pyautogui.click()
 def Logout():
     pyautogui.hotkey("ctrl","alt","del")
+def Battery():
+    from subprocess import run
+    output = run(["upower","-i","/org/freedesktop/UPower/devices/DisplayDevice"], capture_output=True).stdout
+    # output = output[133:142]
+    return output.decode()

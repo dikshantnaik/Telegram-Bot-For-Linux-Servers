@@ -25,14 +25,23 @@ def handle(data):
             bot.sendMessage(chat_id,"Playing "+play_what)
             PlayMusic(play_what)
         elif "logout" in msg or "Logout" in msg:
+            bot.sendMessage(chat_id,"Loging offf")
             Logout()
+
         elif "shutdown" in msg or "Shutdown" in msg:
+            bot.sendMessage(chat_id,"Shuding Down..Bye Bye ")
             os.system("shutdown now")
+
         elif "open" in msg or "Open" in msg:
             if msg[5:] == "code":
                 os.system("code")
+                bot.sendMessage(chat_id,"Opening")
         elif "suspend" in msg or "suspend" in msg or "sleep" in msg or "Sleep" in msg:
             os.system("systemctl suspend")
+            bot.sendMessage(chat_id,"Slepping")
+        elif "battery" in msg or "Battery" in msg:
+             bot.sendMessage(chat_id,Battery())
+            
         else:
             bot.sendMessage(chat_id,"Hey There Get Started ")
 
